@@ -14,7 +14,7 @@ namespace TuanjieDebugVSExtension
             }
             catch (Win32Exception)
             {
-                return (IEnumerable<Process>) Array.Empty<Process>();
+                return (IEnumerable<Process>)Array.Empty<Process>();
             }
         }
 

@@ -4,8 +4,6 @@ global using Microsoft.VisualStudio.Shell;
 global using Task = System.Threading.Tasks.Task;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.Shell.Interop;
 
 namespace TuanjieDebugVSExtension
 {

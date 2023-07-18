@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.Shell.Interop;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Reflection;
+using Microsoft.VisualStudio.Shell.Interop;
 
 namespace TuanjieDebugVSExtension
 {

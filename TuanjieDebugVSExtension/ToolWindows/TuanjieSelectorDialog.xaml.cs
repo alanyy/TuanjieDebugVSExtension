@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Documents;
 using Microsoft.VisualStudio.PlatformUI;
 
 namespace TuanjieDebugVSExtension
@@ -35,7 +34,7 @@ namespace TuanjieDebugVSExtension
                 TuanjieDebugVSExtensionPackage.LogDebugOutput($"[TuanjieDebugExtension] {ex}");
             }
             finally
-            { 
+            {
                 this.Close();
             }
         }

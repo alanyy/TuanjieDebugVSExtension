@@ -17,6 +17,6 @@ namespace TuanjieDebugVSExtension
         [DisplayName("Information Format")]
         [Description("Process information format.")]
         [DefaultValue(true)]
-        public string InformationFormat { get; set; } = string.Format("PID:{{{0}}}", (object) InformationField.ProcessId);
+        public string InformationFormat { get; set; } = string.Format("PID:{{{0}}}", (object)InformationField.ProcessId);
     }
 }
