@@ -13,22 +13,19 @@ namespace TuanjieDebugVSExtension
     [InstalledProductRegistration(Vsix.Name, Vsix.Description, Vsix.Version)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [Guid(PackageGuids.TuanjieDebugVSExtensionString)]
+    [ProvideOptionPage(typeof(OptionsProvider.GeneralOptions), "TuanjieDebugExtension", "General", 0, 0, true, SupportsProfiles = true)]
     public sealed class TuanjieDebugVSExtensionPackage : ToolkitPackage
     {
-        internal static TuanjieDebugVSExtensionPackage Instance { get; private set; }
         private static OutputWindowPane s_outputPane;
-        static TuanjieDebugVSExtensionPackage()
-        {
-            ThreadHelper.JoinableTaskFactory.Run(async () => await CreateOutputWindowPaneAsync());
-        }
 
-        private static async Task CreateOutputWindowPaneAsync()
+        private async Task CreateOutputWindowPaneAsync()
         {
             s_outputPane = await VS.Windows.CreateOutputWindowPaneAsync($"{nameof(TuanjieDebugVSExtension)} Output");
         }
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
             await this.RegisterCommandsAsync();
+            await this.CreateOutputWindowPaneAsync();
         }
 
         public static void LogDebugOutput(string message)
