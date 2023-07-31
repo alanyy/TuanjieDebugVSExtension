@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using Microsoft.VisualStudio.Shell.Interop;
+using Microsoft.VisualStudio.TextManager.Interop;
 
 namespace TuanjieDebugVSExtension
 {
@@ -69,6 +70,21 @@ namespace TuanjieDebugVSExtension
                 s_unityProcessType.GetProperty("DiscoveryType").SetValue(this.Instance, 1);
                 s_unityProcessType.GetProperty("Address").SetValue(this.Instance, address);
                 s_unityProcessType.GetProperty("DebuggerPort").SetValue(this.Instance, port);
+            }
+
+            public UnityProcess(int debugPort, string address, string machine, int messagePort, string projectName, string info, int type, bool isBackground)
+            {
+                var unityProcessCtor = s_unityProcessType.GetConstructor(BindingFlagsAll, null, new Type[] { }, null);
+                this.Instance = unityProcessCtor.Invoke(null);
+                s_unityProcessType.GetProperty("Type").SetValue(this.Instance, type);
+                s_unityProcessType.GetProperty("DiscoveryType").SetValue(this.Instance, 1);
+                s_unityProcessType.GetProperty("Address").SetValue(this.Instance, address);
+                s_unityProcessType.GetProperty("DebuggerPort").SetValue(this.Instance, debugPort);
+                s_unityProcessType.GetProperty("MessagerPort").SetValue(this.Instance, messagePort);
+                s_unityProcessType.GetProperty("Machine").SetValue(this.Instance, machine);
+                s_unityProcessType.GetProperty("ProjectName").SetValue(this.Instance, projectName);
+                s_unityProcessType.GetProperty("Information").SetValue(this.Instance, info);
+                s_unityProcessType.GetProperty("IsBackground").SetValue(this.Instance, isBackground);
             }
         }
 

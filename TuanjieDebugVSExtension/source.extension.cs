@@ -11,7 +11,7 @@ namespace TuanjieDebugVSExtension
         public const string Name = "TuanjieDebugVSExtension";
         public const string Description = @"A Visual Studio extension for debugging Tuanjie engine games.";
         public const string Language = "en-US";
-        public const string Version = "1.0";
+        public const string Version = "1.2";
         public const string Author = "AlanYao";
         public const string Tags = "";
     }
